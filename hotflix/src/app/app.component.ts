@@ -5,7 +5,16 @@ import { MOVIES } from './dummy-movies';
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
+    <h1>{{siteName}}</h1>
+    <div>
+      <input type="text" #title placeholder="Title"/><br/>
+      <input type="text" #year placeholder="Year"/><br/>
+      <input type="text" #rating placeholder="Rating"/><br/>
+      <input type="text" #thumbnail placeholder="Thumbnail"/><br/>
+      <button (click)="addMovie(title, year, rating, thumbnail)">
+        Add
+      </button>
+    </div>
     <table>
       <tr *ngIf="selectedMovie">
         <td><img src="{{selectedMovie.thumbnail}}"/></td>
@@ -35,11 +44,30 @@ import { MOVIES } from './dummy-movies';
   `]
 })
 export class AppComponent {
-  title: string = 'HotFlix';
+  siteName: string = 'HotFlix';
   movies: Movie[] = MOVIES;
   selectedMovie: Movie;
 
   selectMovie(movie:Movie) {
     this.selectedMovie = movie;
+  }
+
+  addMovie(
+      title: HTMLInputElement,
+      year: HTMLInputElement,
+      rating: HTMLInputElement,
+      thumbnail: HTMLInputElement
+    ) {
+    let newMovie : Movie = {
+      title: title.value,
+      year: +year.value,
+      rating: +rating.value,
+      thumbnail: thumbnail.value
+    }
+    this.movies.push(newMovie);
+    title.value = '';
+    year.value = '';
+    rating.value = '';
+    thumbnail.value = '';
   }
 }
