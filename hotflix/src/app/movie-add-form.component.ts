@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Movie } from './movie';
+import { MovieService } from './movie.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'movie-add-form',
@@ -16,7 +18,13 @@ import { Movie } from './movie';
     `
 })
 export class MovieAddFormComponent {
-    @Output() formSubmit = new EventEmitter();
+
+    constructor(
+        private movieService: MovieService,
+        private router: Router
+    ) {
+
+    }
 
     addMovie(
         title: HTMLInputElement,
@@ -30,6 +38,8 @@ export class MovieAddFormComponent {
             rating: +rating.value,
             thumbnail: thumbnail.value
         }
-        this.formSubmit.emit(newMovie);
+        this.movieService
+            .addMovie(newMovie)
+            .then(res => this.router.navigate(['/movies']));
     }
 }

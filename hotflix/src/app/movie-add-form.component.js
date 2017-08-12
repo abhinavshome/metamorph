@@ -9,30 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var movie_service_1 = require("./movie.service");
+var router_1 = require("@angular/router");
 var MovieAddFormComponent = (function () {
-    function MovieAddFormComponent() {
-        this.formSubmit = new core_1.EventEmitter();
+    function MovieAddFormComponent(movieService, router) {
+        this.movieService = movieService;
+        this.router = router;
     }
     MovieAddFormComponent.prototype.addMovie = function (title, year, rating, thumbnail) {
+        var _this = this;
         var newMovie = {
             title: title.value,
             year: +year.value,
             rating: +rating.value,
             thumbnail: thumbnail.value
         };
-        this.formSubmit.emit(newMovie);
+        this.movieService
+            .addMovie(newMovie)
+            .then(function (res) { return _this.router.navigate(['/movies']); });
     };
     return MovieAddFormComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], MovieAddFormComponent.prototype, "formSubmit", void 0);
 MovieAddFormComponent = __decorate([
     core_1.Component({
         selector: 'movie-add-form',
         template: "\n        <div>\n        <input type=\"text\" #title placeholder=\"Title\"/><br/>\n        <input type=\"text\" #year placeholder=\"Year\"/><br/>\n        <input type=\"text\" #rating placeholder=\"Rating\"/><br/>\n        <input type=\"text\" #thumbnail placeholder=\"Thumbnail\"/><br/>\n        <button (click)=\"addMovie(title, year, rating, thumbnail)\">\n            Add\n        </button>\n        </div>\n    "
-    })
+    }),
+    __metadata("design:paramtypes", [movie_service_1.MovieService,
+        router_1.Router])
 ], MovieAddFormComponent);
 exports.MovieAddFormComponent = MovieAddFormComponent;
 //# sourceMappingURL=movie-add-form.component.js.map

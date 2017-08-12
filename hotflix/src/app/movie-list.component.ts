@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Movie } from './movie';
+import { MovieService } from './movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'movie-list',
@@ -10,7 +12,7 @@ import { Movie } from './movie';
         <td colspan="2">
           <b>{{selectedMovie.title}}</b><br/>
           <i>{{selectedMovie.year}}</i><br/>
-          <button>Play</button>
+          <button (click)="goToPlay()">Play</button>
         </td>
       </tr>
       <tr 
@@ -33,11 +35,29 @@ import { Movie } from './movie';
   `]
 })
 export class MovieListComponent {
-  siteName: string = 'HotFlix';
-  @Input() movies: Movie[];
+  movies: Movie[];
   selectedMovie: Movie;
 
-  selectMovie(movie:Movie) {
+  selectMovie(movie: Movie) {
     this.selectedMovie = movie;
+  }
+
+  constructor(
+    private movieService: MovieService,
+    private router: Router
+  ) {
+
+  }
+
+  ngOnInit() {
+    this.movieService
+      .getMovies()
+      .then((res) => {
+        this.movies = res.json();
+      })
+  }
+
+  goToPlay() {
+    this.router.navigate(['/play', this.selectedMovie.id])
   }
 }

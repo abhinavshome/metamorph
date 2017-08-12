@@ -24,6 +24,11 @@ var MovieService = (function () {
             .get(this.url)
             .toPromise();
     };
+    MovieService.prototype.getMovie = function (movieId) {
+        return this.http
+            .get(this.url + '/' + movieId)
+            .toPromise();
+    };
     MovieService.prototype.addMovie = function (movie) {
         return this.http
             .post(this.url, movie, { headers: this.headers })

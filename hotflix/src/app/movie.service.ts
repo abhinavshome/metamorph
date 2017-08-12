@@ -21,6 +21,12 @@ export class MovieService {
             .toPromise();
     }
 
+    getMovie(movieId: number) {
+        return this.http
+            .get(this.url + '/' + movieId)
+            .toPromise();
+    }
+
     addMovie(movie: Movie) {
         return this.http
             .post(this.url, movie, {headers: this.headers}) 
