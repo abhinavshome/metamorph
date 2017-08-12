@@ -1,0 +1,46 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Shawshank Redemption",
+      "year": 1994,
+      "rating": 9.2,
+      "thumbnail": "https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Godfather",
+      "year": 1972,
+      "rating": 9.2,
+      "thumbnail": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTRmNjQ1ZDYtNDgzMy00OGE0LWE4N2YtNTkzNWQ5ZDhlNGJmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR1,0,45,67_AL_.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Dark Knight",
+      "year": 2008,
+      "rating": 9.1,
+      "thumbnail": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "12 Angry Men",
+      "year": 1957,
+      "rating": 8.9,
+      "thumbnail": "https://images-na.ssl-images-amazon.com/images/M/MV5BODQwOTc5MDM2N15BMl5BanBnXkFtZTcwODQxNTEzNA@@._V1_UX45_CR0,0,45,67_AL_.jpg"
+    },
+    {
+      "title": "Fight Club",
+      "year": 1998,
+      "rating": 8.8,
+      "thumbnail": "https://images-na.ssl-images-amazon.com/images/M/MV5BZGY5Y2RjMmItNDg5Yy00NjUwLThjMTEtNDc2OGUzNTBiYmM1XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg",
+      "id": 5
+    },
+    {
+      "title": "Forest Gump",
+      "year": 1988,
+      "rating": 8.3,
+      "thumbnail": "https://images-na.ssl-images-amazon.com/images/M/MV5BYThjM2MwZGMtMzg3Ny00NGRkLWE4M2EtYTBiNWMzOTY0YTI4XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_UY67_CR3,0,45,67_AL_.jpg",
+      "id": 6
+    }
+  ]
+}

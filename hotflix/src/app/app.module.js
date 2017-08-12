@@ -7,7 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var movie_list_component_1 = require("./movie-list.component");
+var movie_add_form_component_1 = require("./movie-add-form.component");
+var movie_service_1 = require("./movie.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -15,8 +19,18 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpModule
+        ],
+        declarations: [
+            app_component_1.AppComponent,
+            movie_list_component_1.MovieListComponent,
+            movie_add_form_component_1.MovieAddFormComponent
+        ],
+        providers: [
+            movie_service_1.MovieService
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
